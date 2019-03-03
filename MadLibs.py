@@ -31,11 +31,18 @@ AdverbSearch = AdverbRegex.search(FileContent)
 VerbRegex = re.compile(r'VERB')
 VerbSearch = VerbRegex.search(FileContent)
 
+# Create rules for search.
 AllCond = (AdjectiveRegex.search(FileContent), NounRegex.search(FileContent), AdverbRegex.search(FileContent), VerbRegex.search(FileContent))
-
+allCondsAreOK = (AdjectiveRegex.search(FileContent) == None and
+                 NounRegex.search(FileContent) == None and
+                 AdverbRegex.search(FileContent) == None and
+                 VerbRegex.search(FileContent) == None)
 
 # Let user to enter their own variables and replace the variables.
 while True:
+    if allCondsAreOK == True:
+        print('Nothing to check')
+        break
     if AllCond != None:
         if AdjectiveRegex.search(FileContent) != None:
             print('Enter a adjective:')
@@ -53,16 +60,10 @@ while True:
             print('Enter a verb:')
             AdverbSub = input()
             FileContent = FileContent[:FileContent.index(VerbSearch.group())] + AdverbSub + FileContent[FileContent.index(VerbSearch.group()) + len('VERB'):]
-        allCondsAreOK = (AdjectiveRegex.search(FileContent) == None and
-                         NounRegex.search(FileContent) == None and
-                         AdverbRegex.search(FileContent) == None and
-                         VerbRegex.search(FileContent) == None)
+            
         if allCondsAreOK:
+            print(FileContent)
             break
 
-
 # Print the result.
-print(FileContent)
-
-
-
+# Program will print the result whenether found needed variables or not.
