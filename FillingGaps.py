@@ -14,7 +14,7 @@
 #Renaming spam102.txt into spam012.txt
 #Renaming spam555.txt into spam013.txt
 
-import re, os, shutil
+import re, os, shutil, sys
 
 # Ask for the prefix and folder.
 print('Enter file prefix and folder where to search.')
@@ -37,6 +37,9 @@ regSearchFor1st = re.compile(regPrefixFor1st)
 # Search folder for files compare filenames and rename them filling the gap between both.
 filenames = ' '.join(os.listdir(folder))
 
+if regSearchFor1st.search(filenames) == None:
+    print('Nothing to search.')
+    sys.exit()
 currentInt  = regSearchFor1st.search(filenames).group(2)
 searchedInt = 0
 for file in os.listdir(folder):
