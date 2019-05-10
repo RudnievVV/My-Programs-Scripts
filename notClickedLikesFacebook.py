@@ -15,10 +15,10 @@ time.sleep(2.5)
 
 # Log to the facebook and simulate human actions with delay.
 emailElem = browser.find_element_by_id('email')
-emailElem.send_keys('enter_email')
+emailElem.send_keys('enter_email') # Enter your email instead of 'enter_email'
 time.sleep(1.5)
 passElem = browser.find_element_by_id('pass')
-passElem.send_keys('enter_password')
+passElem.send_keys('enter_password') # Enter your password instead of 'enter_password'
 time.sleep(1.5)
 browser.find_element_by_id('loginbutton').click()
 
