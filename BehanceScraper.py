@@ -88,7 +88,7 @@ while True:
                     sheet['A' + str(current_general_number_amount + 1)] = posts_bs4[post].select('div[data-slug]')[0].get('data-slug')
                     sheet['B' + str(current_general_number_amount + 1)] = current_likes_number
                     sheet['C' + str(current_general_number_amount + 1)] = current_views_number
-                    sheet['D' + str(current_general_number_amount + 1)] = posts_bs4[post].select('a')[0].get('href')
+                    sheet['D' + str(current_general_number_amount + 1)] = posts_bs4[post].select('a')[2].get('href')
                     continue
         # Continue the loop
         current_searched_posts_amount = len(posts_bs4)
