@@ -1,8 +1,11 @@
 #! python3
 # guess.py - random guess-number program
+
+import random
+
 print('Hello, kiddo! What is you name?')
 name = input()+'-kiddo'
-import random
+
 secretNumber = random.randint(1,20)
 print(name + ', I am thinking of a number between 1 and 20.')
 print('DEBUG: ' + str(secretNumber))
