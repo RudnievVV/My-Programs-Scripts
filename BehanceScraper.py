@@ -71,12 +71,15 @@ while True:
     while True:
         # Write posts data to Excel
         for post in range(current_searched_posts_amount, len(posts_bs4)):
-            current_likes_number = posts_bs4[post].select('.Stats-stats-1iI')[0].text.split('\n')[0].strip()
-            current_views_number = posts_bs4[post].select('.Stats-stats-1iI')[0].text.split('\n')[1].strip()
+            current_likes_number = ''.join(posts_bs4[post].select('.Stats-stats-1iI')[0].text.split('\n')[1].strip().split(','))
+            current_views_number = ''.join(posts_bs4[post].select('.Stats-stats-1iI')[0].text.split('\n')[3].strip().split(','))
             if int(current_likes_number) >= likes_number and int(current_views_number) >= views_number:
                 if current_general_number_amount != 0:
                     # Printing the progress
-                    print('Already saved ' + str(current_general_number_amount) + ' of ' + str(general_number) + ' posts.')
+                    if general_number == 1:
+                        print('Saved ' + str(current_general_number_amount) + ' of ' + str(general_number) + ' post.')
+                    else:
+                        print('Already saved ' + str(current_general_number_amount) + ' of ' + str(general_number) + ' posts.')
                 current_general_number_amount = current_general_number_amount + 1
                 if current_general_number_amount > general_number:
                     current_time = datetime.datetime.now()
