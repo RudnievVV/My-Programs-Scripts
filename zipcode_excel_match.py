@@ -6,7 +6,7 @@
 # Example of customers Excel file, link = https://github.com/RudnievVV/My-Programs-Scripts/blob/master/zipcode_excel_match_customers_example.xlsx
 
 
-import openpyxl, json, re, os, sys
+import openpyxl, json, re, os, sys, pymsgbox
 from openpyxl.utils import get_column_letter, column_index_from_string
 
 
@@ -112,4 +112,6 @@ with open('USCities.json') as us_zip_codes:
 
 print('---------\nDone.')
 excel_work_file.close()
+pymsgbox.alert(text='Excel zipcode file checking was finished successfully.', \
+               title='Excel zipcode checking')
 sys.exit()
