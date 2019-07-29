@@ -71,8 +71,8 @@ while True:
     while True:
         # Write posts data to Excel
         for post in range(current_searched_posts_amount, len(posts_bs4)):
-            current_likes_number = ''.join(posts_bs4[post].select('.Stats-stats-1iI')[0].text.split('\n')[1].strip().split(','))
-            current_views_number = ''.join(posts_bs4[post].select('.Stats-stats-1iI')[0].text.split('\n')[3].strip().split(','))
+            current_likes_number = ''.join(posts_bs4[post].select('.Stats-stats-1iI')[0].text.split('\n')[1].strip().split('\xa0'))
+            current_views_number = ''.join(posts_bs4[post].select('.Stats-stats-1iI')[0].text.split('\n')[3].strip().split('\xa0'))
             if int(current_likes_number) >= likes_number and int(current_views_number) >= views_number:
                 if current_general_number_amount != 0:
                     # Printing the progress
