@@ -1,5 +1,5 @@
 #! python3
-# behance.py - asks user how many likes and views post must be on post
+# BehanceScraper.py - asks user how many likes and views post must be on post
 # to scrape it and how many posts file should contains, opens "https://www.behance.net/" and saves posts into Excel.
 # Will be taken title, number of likes, number of views and post link.
 # File will be saved with unique date time.
