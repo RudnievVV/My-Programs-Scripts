@@ -91,10 +91,6 @@ def variables_checking():
 def scrape_with_progress_bar():
     # Scrape function itself
     def scrape():
-        global current_likes_number
-        global current_views_number
-        global current_general_number_amount
-        global general_number
         likes_input.delete(0, 'end')
         views_input.delete(0, 'end')
         posts_input.delete(0, 'end')
